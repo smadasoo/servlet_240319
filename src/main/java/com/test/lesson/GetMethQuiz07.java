@@ -36,5 +36,8 @@ public class GetMethQuiz07 extends HttpServlet{
 			out.print("결제금액:" + price + "원");
 		}
 		out.print("</body></html>");
+		
+		//테스트용 주석 추가
+		
 	}
 }
