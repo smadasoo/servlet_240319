@@ -24,6 +24,7 @@ public class PostMethodQuiz09 extends HttpServlet {
 		//출력
 		PrintWriter out = response.getWriter();
 		
+	
 	}
 
 }
