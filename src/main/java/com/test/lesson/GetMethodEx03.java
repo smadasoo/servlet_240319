@@ -37,6 +37,8 @@ public class GetMethodEx03 extends HttpServlet{
 				// 한글 깨짐 방지 -> json
 				response.setCharacterEncoding("utf-8");
 				response.setContentType("text/json");
+				// 테스트용 주석 추가
+				
 				
 				// 크롬 브라우저 확장프로그램 JSON Viewer 설치
 				out.print("{\"user_id\":\"" + id + "\", \"name\":\"" + name + "\", \"age\":" + age + "}");
