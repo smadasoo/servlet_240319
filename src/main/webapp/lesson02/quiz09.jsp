@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>채널 안내</title>
 </head>
 
  <!-- bootstrap CDN link -->
@@ -75,12 +75,12 @@
             </header>
              <nav class="bg-danger d-flex align-items-center">
                 <ul class="nav nav-fill w-100">
-                    <li class="nav-item"><a href="#" class="nav-link text-white">전체</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white">지상파</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white">드라마</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white">에능</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white">영화</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-white">스포츠</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp" class="nav-link text-white">전체</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=지상파" class="nav-link text-white">지상파</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=드라마" class="nav-link text-white">드라마</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=예능" class="nav-link text-white">에능</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=영화" class="nav-link text-white">영화</a></li>
+                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=스포츠" class="nav-link text-white">스포츠</a></li>
                 </ul>
             </nav>
             <section class="contents bg-primary">
@@ -95,15 +95,20 @@
 						</thead>
 							<tbody>
 							<%
+								// request param
+								String category = request.getParameter("category");
+								
 								for (Map<String, String> item : list) {
-									
-							%>
+									if (category == null || category.equals(item.get("category"))) {
+									// 카테고리 null(전체) 또는 카테고리 일치 행
+							%>			
 								<tr>
 									<td><%= item.get("ch") %></td>
 									<td><%= item.get("name") %></td>
 									<td><%= item.get("category") %></td>
 								</tr>
 								<% 
+									}
 								}								
 								%>
 							</tbody>
@@ -114,6 +119,7 @@
             	<small>Copyright</small>
             </footer>
             <!-- col 열12칸 기반이다. -->
-
+            
+          
 </body>
 </html>
