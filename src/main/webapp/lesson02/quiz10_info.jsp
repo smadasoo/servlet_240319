@@ -28,8 +28,7 @@
 			//2/
 		if (request.getParameter("search") != null) {
 			String search = request 
-		}
-		}
+`		}
 	}
 	
 	

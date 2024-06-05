@@ -113,9 +113,9 @@
                 <div class="col-10"></div>
 	            	<div class="input-group">
 	 					 <input type="text" class="form-control col-6">
-	  						<div class="input-group-append">
+	  						<div>
 	   				 		<button class="btn btn-info" type="button" id="button">버튼</button>
-	 				 	</div>
+	 				 	</div class="btn btn-susseccc">
 					</div>
    							             
                 
