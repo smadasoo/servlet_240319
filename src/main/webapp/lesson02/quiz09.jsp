@@ -6,20 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>채널 안내</title>
-</head>
+<!-- bootstrap CDN Link -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
- <!-- bootstrap CDN link -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-        
-         <!-- 외부 스타일시트 정의-->
-        <link rel="stylesheet" href="./style.css" type="text/css">
+<style>
+	a, a:hover {color:#fff;}
 
+	header {height:80px;}
+	nav {height:50px;}
+	.contents {min-height:500px;}
+	footer {height:30px;}
+</style>
 </head>
-    <body>
-    
-    <%
+<body>
+<%
     List<Map<String, String>> list = new ArrayList<>();
     Map<String, String> map = new HashMap<String, String>() {{ put("ch", "5"); put("name", "SBS"); put("category", "지상파"); } };
     list.add(map);
@@ -58,68 +60,54 @@
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
 %>
-   		 <style>
-   		 	header {height:80px;}
-   		 	nav{height:50px;}
-   		 	.contents {min-height:500px;}
-   		 	footer {heigth:80px;}
-   		 	
-   		 	.nav-link {color:#fff;}
-   		 	.nav-link:hover {color:777;}
-   		 </style>
-   
-        <!-- container: 어느정도 width를 잡아줌 + 가운데 정렬  -->
-        <div id="wrap" class="container bg-secondary">
-            <header class="bg-primary font-weight-bold justify-content-center align-items-center">
-            	<h1>Sk broadband IPTV</h1>
-            </header>
-             <nav class="bg-danger d-flex align-items-center">
-                <ul class="nav nav-fill w-100">
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp" class="nav-link text-white">전체</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=지상파" class="nav-link text-white">지상파</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=드라마" class="nav-link text-white">드라마</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=예능" class="nav-link text-white">에능</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=영화" class="nav-link text-white">영화</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz09.jsp?category=스포츠" class="nav-link text-white">스포츠</a></li>
-                </ul>
-            </nav>
-            <section class="contents bg-primary">
-            	<table class="class">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>채널</th>
-								<th>채널명</th>
-								<th>카테고리</th>
-							</tr>
-						</thead>
-							<tbody>
-							<%
-								// request param
-								String category = request.getParameter("category");
-								
-								for (Map<String, String> item : list) {
-									if (category == null || category.equals(item.get("category"))) {
-									// 카테고리 null(전체) 또는 카테고리 일치 행
-							%>			
-								<tr>
-									<td><%= item.get("ch") %></td>
-									<td><%= item.get("name") %></td>
-									<td><%= item.get("category") %></td>
-								</tr>
-								<% 
-									}
-								}								
-								%>
-							</tbody>
-            		
-            	</table>
-            </section>
-            <footer>
-            	<small>Copyright</small>
-            </footer>
-            <!-- col 열12칸 기반이다. -->
-            
-          
+
+	<div id="wrap" class="container">
+		<header class="d-flex justify-content-center align-items-center">
+			<h2 class="text-danger font-weight-bold">SK Broadband IPTV</h2>
+		</header>
+		<nav class="bg-danger d-flex align-items-center">
+			<ul class="nav nav-fill w-100">
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp" class="nav-link">전체</a></li>
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp?category=지상파" class="nav-link">지상파</a></li>
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp?category=드라마" class="nav-link">드라마</a></li>
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp?category=예능" class="nav-link">예능</a></li>
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp?category=영화" class="nav-link">영화</a></li>
+				<li class="nav-item"><a href="/lesson02/quiz09.jsp?category=스포츠" class="nav-link">스포츠</a></li>
+			</ul>
+		</nav>
+		<section class="contents">
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th>채널</th>
+						<th>채널명</th>
+						<th>카테고리</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					// request param
+					String category = request.getParameter("category");
+			
+					for (Map<String, String> item : list) {
+						// 출력되는 경우: 카테고리 null(전체) 또는 카테고리명 일치
+						if (category == null || item.get("category").equals(category)) {
+					%>
+					<tr>
+						<td><%=item.get("ch")%></td>
+						<td><%=item.get("name")%></td>
+						<td><%=item.get("category")%></td>
+					</tr>
+					<%
+						}
+					}
+					%>
+				</tbody>
+			</table>
+		</section>
+		<footer class="d-flex justify-content-center align-items-center">
+			<small>Copyright © sk broadband 2024</small>
+		</footer>
+	</div>
 </body>
 </html>

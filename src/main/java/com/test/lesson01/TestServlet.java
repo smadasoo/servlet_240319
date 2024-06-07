@@ -1,4 +1,4 @@
-package com.test.lesson;
+package com.test.lesson01;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

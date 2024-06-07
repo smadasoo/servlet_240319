@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,24 +5,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Melong</title>
- <head>
-    <!-- bootstrap CDN link -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-        
-         <!-- 외부 스타일시트 정의-->
-        <link rel="stylesheet" href="./style.css" type="text/css">
-    </head>
-    <%
+<title>멜롱-아이유</title>
+	<!-- bootstrap CDN Link -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+<style>
+a {text-decoration:none;}
+a:hover {text-decoration:none;}
+
+#wrap {width:1200px; margin:auto;}
+
+header {height:100px;}
+header .logo {width:150px;}
+header .search {width:1050px;}
+header .search .search-bar {width:450px;}
+
+nav {height:40px;}
+
+footer {height:200px;}
+</style>
+</head>
+<body>
+<%
 // 아티스트 정보 
 
     Map<String, Object> artistInfo = new HashMap<>();
     artistInfo.put("name", "아이유");
     artistInfo.put("debute", 2008);
     artistInfo.put("agency", "EDAM엔터테인먼트");
-    artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
+    artistInfo.put("photo", "https://pbs.twimg.com/profile_images/1374979417915547648/vKspl9Et_400x400.jpg");
 
 
 // 아이유 노래 리스트 
@@ -67,7 +79,7 @@
     musicInfo.put("title", "삐삐");
     musicInfo.put("album", "삐삐");
     musicInfo.put("singer", "아이유");
-    musicInfo.put("thumbnail", "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/111/535/81111535_1539157728291_1_600x600.JPG");
+    musicInfo.put("thumbnail", "https://ww.namu.la/s/5ea8ba97baf8af3cc13f2972d9d23bcd17e19b8b8a96ce86d50c4bd03ad4df30321fc7e012738ad4b00c50642195ef7a68ff484ad760b15ff46bb1dc45ffb3fc399e4345c5d4dd2240820b59f3a573a57f84b8a6a2e4fb26ce5e81ad66d85f77debc979900275f6cf7a51386c8c39aa9");
     musicInfo.put("time", 194);
     musicInfo.put("composer", "이종훈");
     musicInfo.put("lyricist", "아이유");
@@ -78,7 +90,7 @@
     musicInfo.put("title", "스물셋");
     musicInfo.put("album", "CHAT-SHIRE");
     musicInfo.put("singer", "아이유");
-    musicInfo.put("thumbnail", "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/724/877/80724877_1445520704274_1_600x600.JPG");
+    musicInfo.put("thumbnail", "https://w.namu.la/s/4a817b8f4ec9caca4027a6991651a401d683a7691f1926bd60e59908f306d439f7cc251af5ef263a6f0a249e831d5d9cf641855bf590dadd86869ff941aad8dc236bc91bac89f84cff60c981d8d6c85f57a2ff4df00b5efe3bbc10e9745ce13571eda48f1912435423317450475d6ffe");
     musicInfo.put("time", 194);
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
@@ -94,62 +106,82 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
-%>
-    
-    <body>
-    
-    <style>
-		 header {height:80px;}
-   		 	nav{height:50px;}
-   		 	.contents {min-height:500px;}
-   		 	footer {heigth:80px;}
-	</style>
-        <div id="wrap" class="container">
-            <header class="d-flex align-items-center">
-                <div class="col-2"></div>
-                	<h3 class="text-success">Melong</h3>
-                	
-                	
-                <div class="col-10"></div>
-	            	<div class="input-group">
-	 					 <input type="text" class="form-control col-6">
-	  						<div>
-	   				 		<button class="btn btn-info" type="button" id="button">버튼</button>
-	 				 	</div class="btn btn-susseccc">
+%>    
+	<div id="wrap">
+		<header class="d-flex align-items-center">
+			<%-- 로고 영역 --%>
+			<div class="col-2">
+				<h3><a href="list_template.jsp" class="text-success">Melong</a></h3>
+			</div>
+			
+			<%-- 검색 영역 --%>
+			<div class="col-10">
+				<form method="get" action="/lesson02/quiz10_info.jsp">
+					<div class="input-group">
+						<input type="text" class="form-control col-6" name="search">
+						<div class="input-group-append">
+							<input type="submit" class="btn btn-info" value="검색">
+						</div>
 					</div>
-   							             
-                
-                
-                <nav class="d-flex">
-                   <input type="text" class="form-control col-5 mt-4">
-                   <button type=submit class="form-control col-2 btn btn-info">검색</button>
-                </nav>
-            </header>
-                 <nav class="bg-danger d-flex align-items-center">
-                <ul class="nav nav-fill w-100">
-                    <li class="nav-item"><a href="/lesson02/quiz10_info.jsp" class="nav-link text">멜롱차트</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz10_info.jsp?=최신음악" class="nav-link text-white">최신음악</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz10_info.jsp=장르음악" class="nav-link text-white">장르음악</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz10_info.jsp=멜롱Dj" class="nav-link text-white">멜롱Dj</a></li>
-                    <li class="nav-item"><a href="/lesson02/quiz10_info.jsp=뮤직어워드" class="nav-link text-white">뮤직어워드</a></li>
-                 </ul>
-             </nav>
-         </div>
-         <div>
-         	<h3>가사</h3>
-         	<hr>
-         	
-         </div>
-         
-         
-         <footer>
-         	<small> copyright</small>
-         </footer>
-         
-         
-         
-         
-     </body>
-</html>
-            
+				</form>
+			</div>
+		</header>
 
+		<nav>
+			<ul class="nav">
+				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">멜롱차트</a></li>
+				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">최신음악</a></li>
+				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">장르음악</a></li>
+				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">멜롱DJ</a></li>
+				<li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">뮤직어워드</a></li>
+			</ul>
+		</nav>
+		
+		<section class="contents">
+			<%-- 아티스트 정보 영역 --%>
+			<div class="singer-info d-flex mt-4 border border-success p-3">
+				<div class="singer-photo mr-4">
+					<img src="<%=artistInfo.get("photo") %>" alt="가수 이미지" width="150">
+				</div>
+				<div class="singer-info">
+					<h3><%=artistInfo.get("name") %></h3>
+					<div><%=artistInfo.get("agency") %></div>
+					<div><%=artistInfo.get("debute") %></div>
+				</div>
+			</div>
+			
+			<%-- 곡 목록 영역 --%>
+			<div class="music-list mt-3">
+				<h4>곡 목록</h4>
+				<table class="table text-center">
+					<thead>
+						<tr>
+							<th>no</th>
+							<th>제목</th>
+							<th>앨범</th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+							for (Map<String, Object> info : musicList) {
+						%>
+						<tr>
+							<td><%=info.get("id") %></td>
+							<td><a href="/lesson02/quiz10_info.jsp?id=<%=info.get("id") %>"><%=info.get("title") %></a></td>
+							<td><%=info.get("album") %></td>
+						</tr>
+						<%
+							}
+						%>
+					</tbody>
+				</table>
+			</div>
+		</section>
+				
+		<hr>
+		<footer>
+			<small class="text-secondary">Copyright 2024. melong All Rights Reserved.</small>
+		</footer>
+	</div>
+</body>
+</html>

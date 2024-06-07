@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MysqlService {
+	// 필드
 	private static MysqlService mysqlService = null;
 	
-	// 도메인 뒤에 접솔학 데이터베이스명까지 써준다
-	private static final String URL = "jdbc:mysql://localhost:3306/test_240319";
+	private static final String URL = "jdbc:mysql://localhost:3306/test_20000101"; // 도메인 뒤에 접속할 데이터베이스명까지 넣는다.
 	private static final String ID = "root";
 	private static final String PASSWORD = "root";
 	
@@ -18,15 +18,14 @@ public class MysqlService {
 	private Statement statement;
 	private ResultSet res;
 	
-	//  객체 생성 메소드
-	// 디자인패턴 책 읽기
-	// Singleton 패턴: MysqlService 라는 객체가 단 하나만 생성될 수 있도록 하는 패턴
-	// 이유: DB 연결을 여러객체에서 하는 것 방지
+	// 메소드
+	
+	// Singleton 패턴: MysqlService라는 객체가 단 하나만 생성될 수 있도록 하는 디자인 패턴
+	// DB 연결을 여러 객체에서 하지 않도록
 	public static MysqlService getInstance() {
-		if (mysqlService == null) { 
+		if (mysqlService == null) {
 			mysqlService = new MysqlService();
 		}
-		
 		return mysqlService;
 	}
 	
@@ -46,24 +45,27 @@ public class MysqlService {
 		}
 	}
 	
-	// DB 연결 해제 
+	// DB 연결 해제
 	public void disconnect() {
 		try {
 			statement.close();
-			
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	// R / CUD
-	// R = read:select
-	public ResultSet select (String query) throws SQLException {
+	
+	// R  /   CUD
+	
+	// R: select
+	public ResultSet select(String query) throws SQLException {
 		res = statement.executeQuery(query);
 		return res;
 	}
 	
-	// CUD:insert, update, delete
-	public void update (String query) throws SQLException {
+	// CUD: insert, update, delete
+	public void update(String query) throws SQLException {
 		statement.executeUpdate(query);
 	}
+	
 }
